@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Activities</title>
+    {% load static %}
+    <script src="{% static 'bootstrap/js/jquery-3.4.0.js' %}"></script>
+    <script src="{% static 'bootstrap/js/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/styles.css' %}">
+</head>
+<body background="{% static 'images/backgroundpic1.jpg' %}">
+<nav class="navbar navbar-expand-sm bg-primary navbar-dark">
+    <!-- Brand/logo -->
+    <a class="navbar-brand" href="#">
+        <img src="{% static 'images/logomilk.jpg' %}" alt="logo" style="width:40px;">
+    </a>
+
+    <!-- Links -->
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link text-danger" href="{% url 'home-url' %}">HOME</a>
+        </li>
+
+        <div class="dropdown">
+            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                Choose Activity
+            </button>
+            <div class="dropdown-menu">
+                <a class="nav-link text-danger" href="{% url 'milk_record' %}">Record Milk</a>
+                <a class="nav-link text-danger" href="{% url 'calculate_amount' %}">Total Amount</a>
+            </div>
+        </div>
+
+    </ul>
+</nav>
+
+
+{% block content %}
+
+{% endblock %}
+<h1>Select Activity.</h1>
+
+</body>
+</html>

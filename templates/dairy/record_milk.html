@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Milk Recording</title>
+    {% load static %}
+    {% load crispy_forms_tags %}
+    {% load crispy_forms_filters %}
+    <script src="{% static 'bootstrap/js/jquery-3.4.0.js' %}"></script>
+    <script src="{% static 'bootstrap/js/popper.min.js' %}"></script>
+    <script src="{% static 'bootstrap/js/bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'bootstrap/css/bootstrap.css' %}">
+    <link rel="stylesheet" href="{% static 'bootstrap/css/styles.css' %}">
+</head>
+<body>
+<p class="text-center">
+    {% for message in messages %}
+    {{ message }}
+    {% endfor %}
+</p>
+<div class="row d-flex col-4 m-auto">
+    <form method="post" action="{% url 'milk_record' %}">
+        {% csrf_token %}
+        <fieldset>
+            <legend class="border-bottom mb-4">Milk Recording</legend>
+            {{ form|crispy }}
+        </fieldset>
+        <div class="form-group">
+            <button class="btn btn-success mt-4" value="Record" type="submit">Record</button>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

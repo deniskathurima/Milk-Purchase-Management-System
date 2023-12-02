@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All Members</title>
+    <style>
+        table{
+            width: 80%;
+            margin-left: 10%;
+            margin-right: 10%;
+        }
+        table, td, th{
+            border: 2px solid red;
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <div class="row justify-content-center">
+    <h1>Our Members</h1>
+        <div class="col-sm-7">
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Dates of Registration</th>
+                    <th>Mobile Number</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for register in registers %}
+                    <tr>
+                        <td>{{ register.firstName | title }}</td>
+                        <td>{{ register.lastName | title }}</td>
+                        <td>{{ register.email }}</td>
+                        <td>{{ register.dateOfRegistration | date:'d-m-Y' }}</td>
+                        <td>{{ register.mobileNumber }}</td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
